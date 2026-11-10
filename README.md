@@ -1,1 +1,1 @@
-# stat-240-final-project
+# final-project-stat240
