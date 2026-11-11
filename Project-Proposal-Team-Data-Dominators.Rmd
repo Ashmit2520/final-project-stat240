@@ -13,16 +13,22 @@ knitr::opts_chunk$set(echo = TRUE)
 # 1. Collaboration Plan
 
 ## Communication
+We will use messages to Posit Cloud to work together. 
 
 ## Simultaneous Collaboration
+We will either meet in person or online through Google Meet
 
 ## Check-ins
+Weekly check-ins are scheduled every Monday, with in-person check-ins every Wednesday during discussion. Additional meetings will be planned as required.
 
 # 2. Data Source
 
 ## Raw Data Link
+https://www.openml.org/search?type=data&sort=runs&status=active&id=40536
+
 
 # 3. Research Question
+
 
 # 4. Data Description
 
