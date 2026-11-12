@@ -9,37 +9,39 @@ date: "2026-11-10"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library("tidyverse")
-install.packages("tidyverse")
 ```
 
 # 1. Collaboration Plan
 
 ## Communication
-We will use messages to Posit Cloud to work together. 
+We will use text messages to communicate and Posit Cloud to work together. 
 
 ## Simultaneous Collaboration
-We will either meet in person or online through Google Meet
+We will either meet in person or online through Google Meet/Zoom.
 
 ## Check-ins
-Weekly check-ins are scheduled every Monday, with in-person check-ins every Wednesday during discussion. Additional meetings will be planned as required.
+Weekly check-ins are scheduled every Monday at 8:00 PM, with in-person check-ins every Wednesday during discussion at 9:55 AM. Additional meetings will be planned as required.
 
 # 2. Data Source
 
 ## Raw Data Link
-https://www.openml.org/search?type=data&sort=runs&status=active&id=40536
+[OpenML: SpeedDating] https://www.openml.org/search?type=data&sort=runs&status=active&id=40536
 
+Since the data on the website is in ARFF format which is not very accessible, please find a more accessible csv file from the following link:
+https://github.com/Ashmit2520/final-project-stat240/blob/main/speeddating.csv
 
 # 3. Research Question
 
-Among participants who are considered attractive (eg. partner attractiveness rating > 6), what is the true population proportion of those who also rate their attractiveness highly, and is it significantly different from a hypothesized value (like 0.50)?
+Among participants who are considered attractive (eg. partner attractiveness rating > 6), what is the true population proportion of those who also rate their attractiveness highly, and is it significantly different from a hypothesized value ( 0.50)?
 
 # 4. Data Description
 
 ## 4.1 Data Collection
+The researchers recruited graduate and professional students from Columbia University. They reached out to them through mass emails and campus flyers. The experiments were conducted over a span of 2002 to 2004 inclusive. They were done inside a private room at a restaurants and a bar near the university campus. They attended individual events called "waves". During a wave, every participant had a 4-minute "speed date" with every person of the opposite sex in the session. They filled out a confidential scorecard after the short conversation. They indicated whether they would like to meet that person again and rated their partner on six ket attributes.
 
 ## 4.2 Key Variables
-`attractive_o`: Rating by partner (about me) at night of event on attractiveness  
-`attractive`: Rate yourself - attractiveness  
+`attractive_o`: Rating by partner (about the person in the row) at night of event on attractiveness  
+`attractive`: Self-rated attractiveness  
 
 ## 4.3 Data Structure and Sample Size
 Single Row Representation: One row of the data set would represent one person who participated in the speed dating experiment
@@ -51,7 +53,7 @@ Sample Size: The sample size is 660, consisting of 660 rows from wave 9 which wa
 ```{r}
 data = read.csv("speeddating.csv")
 
-nrow(data %>% filter(wave ==9) |> filter(attractive> 6))
+nrow(data %>% filter(wave ==9) %>% filter(attractive> 6))
 ```
 
 # 5. Graph Description
@@ -61,15 +63,16 @@ We will create a sampling distribution graph. We will draw a vertical line on th
 - X-axis: Proportion of people that are attractive
 
 # 6. Inference Method
-Single population proportion (p)
+Single population proportion ($p$)
 
 ## Steps
-Compute the observed mean proportion in the sample (Point Estimate).
-Calculate the test statistic.
-Standardize the test statistic.
-Compute the p-value under the null hypothesis (H0: p = 0.50).
+- Compute the observed mean proportion in the sample (Point Estimate).
+- Calculate the test statistic.
+- Standardize the test statistic.
+- Compute the p-value under the null hypothesis ($H_0: p = 0.50$).
+- Compare the p-value with $\alpha$.
 
 ## Interpretation
-Reject H0: If p < 0.05, there is a significant difference between the self-perceived and externally-perceived attractiveness.
-Fail to Reject H0: If p ≥ 0.05, conclude no significant difference exists between the self-perceived and externally-perceived attractiveness.
+- Reject $H_0$: If $p < 0.05$, there is a significant difference between the self-perceived and externally-perceived attractiveness.
+- Fail to Reject $H_0$: If $p \ge 0.05$, conclude no significant difference exists between the self-perceived and externally-perceived attractiveness.
 

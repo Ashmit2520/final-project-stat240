@@ -366,45 +366,110 @@ Senthilkumar, Sid Satheesh</h3>
 <h1>1. Collaboration Plan</h1>
 <div id="communication" class="section level2">
 <h2>Communication</h2>
+<p>We will use text messages to communicate and Posit Cloud to work
+together.</p>
 </div>
 <div id="simultaneous-collaboration" class="section level2">
 <h2>Simultaneous Collaboration</h2>
+<p>We will either meet in person or online through Google Meet/Zoom.</p>
 </div>
 <div id="check-ins" class="section level2">
 <h2>Check-ins</h2>
+<p>Weekly check-ins are scheduled every Monday at 8:00 PM, with
+in-person check-ins every Wednesday during discussion at 9:55 AM.
+Additional meetings will be planned as required.</p>
 </div>
 </div>
 <div id="data-source" class="section level1">
 <h1>2. Data Source</h1>
 <div id="raw-data-link" class="section level2">
 <h2>Raw Data Link</h2>
+<p>[OpenML: SpeedDating] <a href="https://www.openml.org/search?type=data&amp;sort=runs&amp;status=active&amp;id=40536" class="uri">https://www.openml.org/search?type=data&amp;sort=runs&amp;status=active&amp;id=40536</a></p>
+<p>Since the data on the website is in ARFF format which is not very
+accessible, please find a more accessible csv file from the following
+link: <a href="https://github.com/Ashmit2520/final-project-stat240/blob/main/speeddating.csv" class="uri">https://github.com/Ashmit2520/final-project-stat240/blob/main/speeddating.csv</a></p>
 </div>
 </div>
 <div id="research-question" class="section level1">
 <h1>3. Research Question</h1>
+<p>Among participants who are considered attractive (eg. partner
+attractiveness rating &gt; 6), what is the true population proportion of
+those who also rate their attractiveness highly, and is it significantly
+different from a hypothesized value ( 0.50)?</p>
 </div>
 <div id="data-description" class="section level1">
 <h1>4. Data Description</h1>
 <div id="data-collection" class="section level2">
 <h2>4.1 Data Collection</h2>
+<p>The researchers recruited graduate and professional students from
+Columbia University. They reached out to them through mass emails and
+campus flyers. The experiments were conducted over a span of 2002 to
+2004 inclusive. They were done inside a private room at a restaurants
+and a bar near the university campus. They attended individual events
+called “waves”. During a wave, every participant had a 4-minute “speed
+date” with every person of the opposite sex in the session. They filled
+out a confidential scorecard after the short conversation. They
+indicated whether they would like to meet that person again and rated
+their partner on six ket attributes.</p>
 </div>
 <div id="key-variables" class="section level2">
 <h2>4.2 Key Variables</h2>
+<p><code>attractive_o</code>: Rating by partner (about the person in the
+row) at night of event on attractiveness<br />
+<code>attractive</code>: Self-rated attractiveness</p>
 </div>
 <div id="data-structure-and-sample-size" class="section level2">
 <h2>4.3 Data Structure and Sample Size</h2>
+<p>Single Row Representation: One row of the data set would represent
+one person who participated in the speed dating experiment</p>
+<p>Population Representation: We can assume that this sample student
+represents the larger population of Columbia University students through
+the past 20 years. This is because the researchers recruited students
+randomly via mass emails and campus flyers.</p>
+<p>Sample Size: The sample size is 660, consisting of 660 rows from wave
+9 which was a single session. The sample size is relatively small but
+the people from each wave are pulled from the larger population of
+students from Columbia. This makes it reasonable to provide a stable
+basis for hypothesis testing.</p>
+<pre class="r"><code>data = read.csv(&quot;speeddating.csv&quot;)
+
+nrow(data %&gt;% filter(wave ==9) %&gt;% filter(attractive&gt; 6))</code></pre>
+<pre><code>## [1] 660</code></pre>
 </div>
 </div>
 <div id="graph-description" class="section level1">
 <h1>5. Graph Description</h1>
+<p>We will create a sampling distribution graph. We will draw a vertical
+line on the p-value to compare it with <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li>Y-axis: Probability density</li>
+<li>X-axis: Proportion of people that are attractive</li>
+</ul>
 </div>
 <div id="inference-method" class="section level1">
 <h1>6. Inference Method</h1>
+<p>Single population proportion (<span class="math inline">\(p\)</span>)</p>
 <div id="steps" class="section level2">
 <h2>Steps</h2>
+<ul>
+<li>Compute the observed mean proportion in the sample (Point
+Estimate).</li>
+<li>Calculate the test statistic.</li>
+<li>Standardize the test statistic.</li>
+<li>Compute the p-value under the null hypothesis (<span class="math inline">\(H_0: p = 0.50\)</span>).</li>
+<li>Compare the p-value with <span class="math inline">\(\alpha\)</span>.</li>
+</ul>
 </div>
 <div id="interpretation" class="section level2">
 <h2>Interpretation</h2>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span>: If <span class="math inline">\(p &lt; 0.05\)</span>, there is a significant
+difference between the self-perceived and externally-perceived
+attractiveness.</li>
+<li>Fail to Reject <span class="math inline">\(H_0\)</span>: If <span class="math inline">\(p \ge 0.05\)</span>, conclude no significant
+difference exists between the self-perceived and externally-perceived
+attractiveness.</li>
+</ul>
 </div>
 </div>
 
