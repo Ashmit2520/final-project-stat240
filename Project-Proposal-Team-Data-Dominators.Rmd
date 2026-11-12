@@ -34,7 +34,7 @@ https://github.com/Ashmit2520/final-project-stat240/blob/main/speeddating.csv
 
 # 3. Research Question
 
-Among participants who are considered attractive (eg. partner attractiveness rating > 6), what is the true population proportion of those who also rate their attractiveness highly, and is it significantly different from a hypothesized value ( 0.50)?
+Among participants who considered themselves attractive (eg. self-rated attractiveness rating > 6), what is the true population proportion of those who are also rated highly on attractiveness, and is it significantly different from a hypothesized value ( 0.50)?
 
 # 4. Data Description
 
@@ -46,16 +46,19 @@ The researchers recruited graduate and professional students from Columbia Unive
 `attractive`: Self-rated attractiveness  
 
 ## 4.3 Data Structure and Sample Size
-Single Row Representation: One row of the data set would represent one person who participated in the speed dating experiment
+Single Row Representation: One row of the data set would represents an individual speed-dating interaction in the speed-dating experiment
 
 Population Representation: We can assume that this sample student represents the larger population of Columbia University students through the past 20 years. This is because the researchers recruited students randomly via mass emails and campus flyers. 
 
-Sample Size: The sample size is 660, consisting of 660 rows from wave 9 which was a single session. The sample size is relatively small but the people from each wave are pulled from the larger population of students from Columbia. This makes it reasonable to provide a stable basis for hypothesis testing.
+Sample Size: The sample size is 700, consisting of 700 rows from wave 9 which was a single session. The sample size is relatively small but the people from each wave are pulled from the larger population of students from Columbia. This makes it reasonable to provide a stable basis for hypothesis testing.
 
 ```{r}
 data = read.csv("speeddating.csv")
 
-nrow(data %>% filter(wave ==9) %>% filter(attractive> 6))
+data$attractive <- as.numeric(as.character(data$attractive))
+data$attractive_o <- as.numeric(as.character(data$attractive_o))
+
+nrow(data %>% filter(wave ==9) %>% filter(attractive > 6))
 ```
 
 ```{r}
