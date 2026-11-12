@@ -5,6 +5,8 @@ date: "2026-11-10"
 
 ---
 ### Team name: Data Dominators
+### Lecture: 003
+### Discusision: 333
 ### Group Members: Ashmit Ashish Gadekar, Elaine Standley, Sadhaya Senthilkumar, Sid Satheesh
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -55,6 +57,11 @@ data = read.csv("speeddating.csv")
 
 nrow(data %>% filter(wave ==9) %>% filter(attractive> 6))
 ```
+
+```{r}
+glimpse(data |> select(attractive, attractive_o))
+```
+
 
 # 5. Graph Description
 We will create a sampling distribution graph. We will draw a vertical line on the p-value to compare it with $\alpha$.

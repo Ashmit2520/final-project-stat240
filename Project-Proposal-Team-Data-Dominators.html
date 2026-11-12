@@ -358,6 +358,12 @@ display: none;
 <div id="team-name-data-dominators" class="section level3">
 <h3>Team name: Data Dominators</h3>
 </div>
+<div id="lecture-003" class="section level3">
+<h3>Lecture: 003</h3>
+</div>
+<div id="discusision-333" class="section level3">
+<h3>Discusision: 333</h3>
+</div>
 <div id="group-members-ashmit-ashish-gadekar-elaine-standley-sadhaya-senthilkumar-sid-satheesh" class="section level3">
 <h3>Group Members: Ashmit Ashish Gadekar, Elaine Standley, Sadhaya
 Senthilkumar, Sid Satheesh</h3>
@@ -435,6 +441,11 @@ basis for hypothesis testing.</p>
 
 nrow(data %&gt;% filter(wave ==9) %&gt;% filter(attractive&gt; 6))</code></pre>
 <pre><code>## [1] 660</code></pre>
+<pre class="r"><code>glimpse(data |&gt; select(attractive, attractive_o))</code></pre>
+<pre><code>## Rows: 8,378
+## Columns: 2
+## $ attractive   &lt;chr&gt; &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;6&quot;, &quot;7&quot;, &quot;7…
+## $ attractive_o &lt;chr&gt; &quot;6&quot;, &quot;7&quot;, &quot;10&quot;, &quot;7&quot;, &quot;8&quot;, &quot;7&quot;, &quot;3&quot;, &quot;6&quot;, &quot;7&quot;, &quot;6&quot;, &quot;8&quot;, &quot;…</code></pre>
 </div>
 </div>
 <div id="graph-description" class="section level1">
