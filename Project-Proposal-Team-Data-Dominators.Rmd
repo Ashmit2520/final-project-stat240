@@ -8,6 +8,8 @@ date: "2026-11-10"
 ### Group Members: Ashmit Ashish Gadekar, Elaine Standley, Sadhaya Senthilkumar, Sid Satheesh
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+install.packages("tidyverse")
 ```
 
 # 1. Collaboration Plan
@@ -29,19 +31,45 @@ https://www.openml.org/search?type=data&sort=runs&status=active&id=40536
 
 # 3. Research Question
 
+Among participants who are considered attractive (eg. partner attractiveness rating > 6), what is the true population proportion of those who also rate their attractiveness highly, and is it significantly different from a hypothesized value (like 0.50)?
 
 # 4. Data Description
 
 ## 4.1 Data Collection
 
 ## 4.2 Key Variables
+`attractive_o`: Rating by partner (about me) at night of event on attractiveness  
+`attractive`: Rate yourself - attractiveness  
 
 ## 4.3 Data Structure and Sample Size
+Single Row Representation: One row of the data set would represent one person who participated in the speed dating experiment
+
+Population Representation: We can assume that this sample student represents the larger population of Columbia University students through the past 20 years. This is because the researchers recruited students randomly via mass emails and campus flyers. 
+
+Sample Size: The sample size is 660, consisting of 660 rows from wave 9 which was a single session. The sample size is relatively small but the people from each wave are pulled from the larger population of students from Columbia. This makes it reasonable to provide a stable basis for hypothesis testing.
+
+```{r}
+data = read.csv("speeddating.csv")
+
+nrow(data %>% filter(wave ==9) |> filter(attractive> 6))
+```
 
 # 5. Graph Description
+We will create a sampling distribution graph. We will draw a vertical line on the p-value to compare it with $\alpha$.
+
+- Y-axis: Probability density
+- X-axis: Proportion of people that are attractive
 
 # 6. Inference Method
+Single population proportion (p)
 
 ## Steps
+Compute the observed mean proportion in the sample (Point Estimate).
+Calculate the test statistic.
+Standardize the test statistic.
+Compute the p-value under the null hypothesis (H0: p = 0.50).
 
 ## Interpretation
+Reject H0: If p < 0.05, there is a significant difference between the self-perceived and externally-perceived attractiveness.
+Fail to Reject H0: If p ≥ 0.05, conclude no significant difference exists between the self-perceived and externally-perceived attractiveness.
+
