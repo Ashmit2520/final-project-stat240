@@ -1,0 +1,53 @@
+---
+title: "Final-Project-Data-Dominators"
+output: html_document
+date: "2026-11-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Team name: Data Dominators
+### Lecture: 003
+### Discusision: 333
+### Group Members: Ashmit Ashish Gadekar, Elaine Standley, Sadhaya Senthilkumar, Sid Satheesh
+
+
+# Introduction
+
+# Background
+
+## Data Sources
+
+## Variables:
+
+## Data Structure:
+
+## Data Cleaning and Processing:
+
+# Statistical Analysis
+
+## Parameter of Interest
+
+## Type of Inference
+
+## Assumptions
+
+## Hypotheses
+
+## Test Statistic and Null Distribution
+
+## Results
+
+## Interpretation: Compare p-value with \(\alpha = 0.05\)
+
+## Confidence Interval
+
+# Discussion
+
+## a.Further interpretation
+
+## b.Shortcomings of the analysis
+
+## c. Additional Questions and Recommendations for Future Research
